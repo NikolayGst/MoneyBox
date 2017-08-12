@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:orientation="vertical"
+  android:layout_height="match_parent"
+  tools:context="niko.ru.kopilka.activity.fragment.CreateTaskFragment">
+
+  <EditText
+    android:id="@+id/desc"
+    android:layout_width="match_parent"
+    android:padding="32dp"
+    android:textSize="20sp"
+    android:inputType="text"
+    android:textColor="@color/black"
+    android:hint="Опешите ваше желание"
+    android:layout_height="wrap_content" />
+
+  <EditText
+    android:id="@+id/total"
+    android:layout_width="match_parent"
+    android:padding="32dp"
+    android:textSize="20sp"
+    android:inputType="numberDecimal"
+    android:maxLength="8"
+    android:textColor="@color/black"
+    android:hint="Сколько нужно накопить?"
+    android:layout_height="wrap_content" />
+
+  <EditText
+    android:id="@+id/rate"
+    android:layout_width="match_parent"
+    android:padding="32dp"
+    android:maxLength="3"
+    android:textSize="20sp"
+    android:inputType="text"
+    android:textColor="@color/black"
+    android:hint="Введите валюту"
+    android:layout_height="wrap_content" />
+
+  <Button
+    android:id="@+id/createTask"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_marginTop="16dp"
+    android:layout_marginLeft="16dp"
+    android:text="Создать"
+    android:textColor="@color/white"
+    android:textSize="20sp"
+    android:layout_marginRight="16dp"
+    android:layout_height="60dp" />
+
+</LinearLayout>

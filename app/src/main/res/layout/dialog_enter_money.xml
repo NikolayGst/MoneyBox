@@ -1,36 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical" android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
 
   <TextView
     android:layout_width="match_parent"
-    android:text="Введите сумму"
-    android:fontFamily="sans-serif-light"
-    android:textSize="25sp"
-    android:gravity="center"
+    android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
     android:layout_marginLeft="64dp"
     android:layout_marginRight="64dp"
+    android:fontFamily="sans-serif-light"
+    android:gravity="center"
+    android:text="Введите сумму"
     android:textColor="@android:color/black"
-    android:layout_height="wrap_content" />
+    android:textSize="22sp" />
 
   <EditText
     android:id="@+id/editMoney"
     android:layout_width="match_parent"
-    android:textColorHighlight="@color/white"
+    android:layout_height="wrap_content"
     android:inputType="numberDecimal"
     android:maxLength="8"
     android:textColor="@android:color/black"
-    android:layout_height="wrap_content" />
+    android:textColorHighlight="@color/white" />
 
-  <Button
-    android:id="@+id/save"
+  <LinearLayout
     android:layout_width="match_parent"
-    android:textColor="@color/white"
-    android:layout_margin="16dp"
-    android:text="Сохранить"
-    android:background="@color/colorPrimary"
-    android:layout_height="wrap_content" />
+    android:layout_height="wrap_content">
+    <Button
+      android:id="@+id/save"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="4dp"
+      android:background="@color/green"
+      android:text="Добавить"
+      android:textColor="@color/white" />
+    <Button
+      android:id="@+id/delete"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="16dp"
+      android:layout_marginLeft="4dp"
+      android:layout_marginRight="16dp"
+      android:layout_margin="16dp"
+      android:background="@color/red"
+      android:text="снять"
+      android:textColor="@color/white" />
+  </LinearLayout>
+
 
 </LinearLayout>

@@ -1,11 +1,15 @@
-package niko.ru.kopilka;
+package niko.ru.kopilka.view;
+
+import static android.content.Context.MODE_PRIVATE;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
@@ -14,7 +18,8 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import niko.ru.kopilka.DialogEnterMoney.OnEnterMoneyListener;
+import niko.ru.kopilka.view.DialogEnterMoney.OnEnterMoneyListener;
+import niko.ru.kopilka.R;
 
 public class MoneyBoxView extends View {
 
@@ -26,7 +31,7 @@ public class MoneyBoxView extends View {
   private int padding = 50;
   private float startAngle = 0;
   private float endAngle = 0;
-  private float included = 4000f;
+  private float included = 0;
   private float total = 20000f;
   private String rate = "ГРН";
   private int radius;
@@ -34,7 +39,8 @@ public class MoneyBoxView extends View {
   private int cy;
 
   private FragmentManager fragmentManager;
-  private String descText = "На покупку SAMSUNG GALAXY 10";
+  private float pos;
+  private SharedPreferences sharedPreferences;
 
   public void setFragmentManager(FragmentManager fragmentManager) {
     this.fragmentManager = fragmentManager;
@@ -52,11 +58,14 @@ public class MoneyBoxView extends View {
   }
 
   private void init(AttributeSet attrs) {
+    sharedPreferences = getContext().getSharedPreferences("app", MODE_PRIVATE);
+    //included = getIncludedValue();
     backgroundColor = ContextCompat.getColor(getContext(), R.color.colorPrimary);
     textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     figurePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     figurePaint.setStyle(Style.STROKE);
     textPaint.setStyle(Style.FILL);
+    textPaint.setTypeface(Typeface.create("roboto", Typeface.NORMAL));
     textPaint.setColor(ContextCompat.getColor(getContext(), R.color.white));
     textPaint.setTextAlign(Align.CENTER);
     getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
@@ -67,25 +76,33 @@ public class MoneyBoxView extends View {
         height = getHeight();
       }
     });
+
+  }
+
+  public void set(String rate, float total) {
+    this.rate = rate;
+    this.total = total;
+    postInvalidate();
+  }
+
+  private void animateDrawCircle() {
+    pos = ((included * 100 / total) / 100) * 360;
+    if (endAngle <= pos) {
+      endAngle++;
+      postInvalidate();
+    }
   }
 
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
-    endAngle = ((included * 100 / total) / 100) * 360;
+    animateDrawCircle();
     canvas.drawColor(backgroundColor);
-    drawTopText(canvas);
+    //  drawTopText(canvas);
     drawMiddleText(canvas);
     drawDescentText(canvas);
     drawFirstCircle(canvas);
     drawSecondCircle(canvas);
-  }
-
-  private void drawTopText(Canvas canvas) {
-    textPaint.setTextSize(TypedValue
-        .applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics()));
-    canvas.drawText(descText, width / 2,
-        height / 8, textPaint);
   }
 
   private void drawMiddleText(Canvas canvas) {
@@ -106,8 +123,12 @@ public class MoneyBoxView extends View {
   private void drawSecondCircle(Canvas canvas) {
     figurePaint.setColor(ContextCompat.getColor(getContext(), R.color.red));
     figurePaint.setStrokeWidth(20);
-    canvas.drawArc(padding + 14, height / 2 - height / 4 - 4, width - padding - 14,
-        height / 2 + height / 4 + 4, startAngle, endAngle, false, figurePaint);
+    canvas
+        .drawArc(cx - radius + 15, cy - radius + 15, cx + radius - 15, cy + radius - 15,
+            startAngle + 90,
+            endAngle, false, figurePaint);
+    // canvas.drawArc(padding + 14, height / 2 - height / 4 - 4, width - padding - 14, height / 2 + height / 4 + 4, startAngle, endAngle, false, figurePaint);
+    //canvas.drawArc(width /6 - padding, height / 2 - height / 4 - padding, width - padding, height / 2 + height / 4 , startAngle, endAngle, false, figurePaint);
   }
 
   private void drawFirstCircle(Canvas canvas) {
@@ -125,7 +146,16 @@ public class MoneyBoxView extends View {
     enterMoney.setOnEnterMoneyListener(new OnEnterMoneyListener() {
       @Override
       public void onEnterMoney(float money) {
-        included = money;
+        included += money;
+        //   setIncludedValue(included);
+        postInvalidate();
+      }
+
+      @Override
+      public void onWithDrawMoney(float money) {
+        included -= money;
+        //  setIncludedValue(included);
+        endAngle = 0;
         postInvalidate();
       }
     });
@@ -147,4 +177,14 @@ public class MoneyBoxView extends View {
     postInvalidate();
     return true;
   }
+
+ /* private void setIncludedValue(float value) {
+    sharedPreferences.edit().putFloat("progress", value).apply();
+  }
+
+  private float getIncludedValue() {
+    return sharedPreferences.getFloat("progress", 0);
+  }
+*/
+
 }
