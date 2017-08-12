@@ -13,7 +13,7 @@
     android:textSize="20sp"
     android:inputType="text"
     android:textColor="@color/black"
-    android:hint="Опешите ваше желание"
+    android:hint="Опишите ваше желание"
     android:layout_height="wrap_content" />
 
   <EditText
