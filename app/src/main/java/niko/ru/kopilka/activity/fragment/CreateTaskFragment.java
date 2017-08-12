@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import niko.ru.kopilka.R;
 import niko.ru.kopilka.activity.DetailAnctivity;
+import niko.ru.kopilka.model.Task;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,10 +40,15 @@ public class CreateTaskFragment extends Fragment {
       public void onClick(View v) {
         if (desc.getText().toString().length() != 0 && total.getText().toString().length() != 0
             && rate.getText().toString().length() != 0) {
+
+          Task task = new Task(desc.getText().toString(), rate.getText().toString(), Float.parseFloat(total.getText().toString()));
+          task.save();
+
           Intent intent = new Intent(getActivity(), DetailAnctivity.class);
+          intent.putExtra("id", task.getId());/*
           intent.putExtra("desc", desc.getText().toString());
           intent.putExtra("rate", rate.getText().toString());
-          intent.putExtra("total", Float.parseFloat(total.getText().toString()));
+          intent.putExtra("total", Float.parseFloat(total.getText().toString()));*/
           startActivity(intent);
         }
       }

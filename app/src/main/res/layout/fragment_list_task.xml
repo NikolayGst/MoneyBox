@@ -2,14 +2,22 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:background="@color/gray"
   tools:context="niko.ru.kopilka.activity.fragment.ListTasksFragment">
 
   <!-- TODO: Update blank fragment layout -->
-  <TextView
-    android:textSize="30sp"
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/recyclerTask"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent"/>
+
+  <TextView
+    android:id="@+id/empty"
+
+    android:layout_width="match_parent"
+    android:text="Пока нет желаний..."
+    android:textSize="28sp"
     android:gravity="center"
-    android:text="list task" />
+    android:layout_height="match_parent" />
 
 </FrameLayout>

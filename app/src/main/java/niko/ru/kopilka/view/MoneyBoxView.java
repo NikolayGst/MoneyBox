@@ -18,6 +18,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import niko.ru.kopilka.model.Task;
 import niko.ru.kopilka.view.DialogEnterMoney.OnEnterMoneyListener;
 import niko.ru.kopilka.R;
 
@@ -31,9 +32,10 @@ public class MoneyBoxView extends View {
   private int padding = 50;
   private float startAngle = 0;
   private float endAngle = 0;
+  private long id;
   private float included = 0;
-  private float total = 20000f;
-  private String rate = "ГРН";
+  private float total;
+  private String rate;
   private int radius;
   private int cx;
   private int cy;
@@ -41,6 +43,7 @@ public class MoneyBoxView extends View {
   private FragmentManager fragmentManager;
   private float pos;
   private SharedPreferences sharedPreferences;
+
 
   public void setFragmentManager(FragmentManager fragmentManager) {
     this.fragmentManager = fragmentManager;
@@ -79,8 +82,10 @@ public class MoneyBoxView extends View {
 
   }
 
-  public void set(String rate, float total) {
+  public void set(long id, String rate, float included, float total) {
+    this.id = id;
     this.rate = rate;
+    this.included = included;
     this.total = total;
     postInvalidate();
   }
@@ -115,7 +120,7 @@ public class MoneyBoxView extends View {
   private void drawDescentText(Canvas canvas) {
     textPaint.setTextSize(TypedValue
         .applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics()));
-    canvas.drawText((included * 100 / total) + "%", width / 2,
+    canvas.drawText((int)(included * 100 / total) + "%", width / 2,
         height / 2 + height / 5, textPaint);
   }
 
@@ -147,14 +152,14 @@ public class MoneyBoxView extends View {
       @Override
       public void onEnterMoney(float money) {
         included += money;
-        //   setIncludedValue(included);
+        setIncludedValue(included);
         postInvalidate();
       }
 
       @Override
       public void onWithDrawMoney(float money) {
         included -= money;
-        //  setIncludedValue(included);
+        setIncludedValue(included);
         endAngle = 0;
         postInvalidate();
       }
@@ -178,13 +183,10 @@ public class MoneyBoxView extends View {
     return true;
   }
 
- /* private void setIncludedValue(float value) {
-    sharedPreferences.edit().putFloat("progress", value).apply();
+  private void setIncludedValue(float value) {
+    Task task = Task.findById(Task.class, id);
+    task.included = value;
+    task.save();
   }
-
-  private float getIncludedValue() {
-    return sharedPreferences.getFloat("progress", 0);
-  }
-*/
 
 }

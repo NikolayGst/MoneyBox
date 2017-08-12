@@ -8,31 +8,49 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.TextView;
 import niko.ru.kopilka.R;
+import niko.ru.kopilka.model.Task;
 import niko.ru.kopilka.view.MoneyBoxView;
 
 public class DetailAnctivity extends AppCompatActivity {
 
   private TextView desc;
   private MoneyBoxView moneyBox;
+  private long id;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    //  setContentView(new MoneyBoxView(this, getSupportFragmentManager()));
-    //setContentView(new AnimView(this));
+
     setContentView(R.layout.activity_detail);
+
+    initView();
+
+    initData();
+
+    initAnimation();
+
+
+  }
+
+  private void initView() {
     desc = (TextView) findViewById(R.id.desc);
     moneyBox = (MoneyBoxView) findViewById(R.id.moneyBox);
+    moneyBox.setFragmentManager(getSupportFragmentManager());
+  }
+
+  private void initData() {
     Bundle extras = getIntent().getExtras();
 
     if (extras != null) {
-      desc.setText(extras.getString("desc"));
-      moneyBox.set(extras.getString("rate"), extras.getFloat("total"));
+      id = extras.getLong("id");
+      Task task = Task.findById(Task.class, id);
+      desc.setText(task.description);
+      moneyBox.set(id,task.rate, task.included, task.total);
     }
+  }
 
-    moneyBox.setFragmentManager(getSupportFragmentManager());
-    //moneyBox.setVisibility(View.VISIBLE);
-    final AlphaAnimation descAnim = new AlphaAnimation(0, 1f);
+  private void initAnimation() {
+    AlphaAnimation descAnim = new AlphaAnimation(0, 1f);
     descAnim.setDuration(1500);
     descAnim.setAnimationListener(new AnimationListener() {
       @Override
@@ -55,7 +73,6 @@ public class DetailAnctivity extends AppCompatActivity {
     });
 
     desc.startAnimation(descAnim);
-
-
   }
+
 }
