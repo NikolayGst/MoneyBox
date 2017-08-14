@@ -3,7 +3,6 @@ package niko.ru.kopilka.activity.fragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -15,14 +14,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
-
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import com.github.nitrico.lastadapter.Holder;
 import com.github.nitrico.lastadapter.ItemType;
 import com.github.nitrico.lastadapter.LastAdapter;
 import java.util.List;
-import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import niko.ru.kopilka.BR;
 import niko.ru.kopilka.R;
 import niko.ru.kopilka.activity.DetailAnctivity;
@@ -64,11 +60,7 @@ public class ListTasksFragment extends Fragment {
     super.onResume();
     tasks = Task.listAll(Task.class);
 
-    if (tasks.size() != 0) {
-
-      recyclerTask.setVisibility(View.VISIBLE);
-      empty.setVisibility(View.INVISIBLE);
-
+    if (checkEmptyList()) {
       /*SlideInLeftAnimator slideInLeftAnimator = new SlideInLeftAnimator();
       slideInLeftAnimator.setChangeDuration(1500);
       slideInLeftAnimator.setMoveDuration(1500);
@@ -126,20 +118,18 @@ public class ListTasksFragment extends Fragment {
             }
           })
           .into(recyclerTask);
-
-    } else {
-      recyclerTask.setVisibility(View.INVISIBLE);
-      empty.setVisibility(View.VISIBLE);
     }
   }
 
-  private void checkEmptyList() {
+  private boolean checkEmptyList() {
     if (tasks.size() != 0) {
       recyclerTask.setVisibility(View.VISIBLE);
       empty.setVisibility(View.INVISIBLE);
+      return true;
     } else {
       recyclerTask.setVisibility(View.INVISIBLE);
       empty.setVisibility(View.VISIBLE);
+      return false;
     }
   }
 

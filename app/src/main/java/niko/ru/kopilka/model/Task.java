@@ -1,7 +1,6 @@
 package niko.ru.kopilka.model;
 
 import com.orm.SugarRecord;
-import com.orm.dsl.Ignore;
 
 
 public class Task extends SugarRecord<Task> {

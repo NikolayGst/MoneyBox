@@ -21,6 +21,10 @@ import niko.ru.kopilka.model.Task;
 public class CreateTaskFragment extends Fragment {
 
 
+  private EditText desc;
+  private EditText rate;
+  private EditText total;
+
   public CreateTaskFragment() {
     // Required empty public constructor
   }
@@ -31,9 +35,9 @@ public class CreateTaskFragment extends Fragment {
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     View inflate = inflater.inflate(R.layout.fragment_create_task, container, false);
-    final EditText desc = (EditText) inflate.findViewById(R.id.desc);
-    final EditText rate = (EditText) inflate.findViewById(R.id.rate);
-    final EditText total = (EditText) inflate.findViewById(R.id.total);
+    desc = (EditText) inflate.findViewById(R.id.desc);
+    rate = (EditText) inflate.findViewById(R.id.rate);
+    total = (EditText) inflate.findViewById(R.id.total);
     Button createTask = (Button) inflate.findViewById(R.id.createTask);
     createTask.setOnClickListener(new OnClickListener() {
       @Override
@@ -41,7 +45,9 @@ public class CreateTaskFragment extends Fragment {
         if (desc.getText().toString().length() != 0 && total.getText().toString().length() != 0
             && rate.getText().toString().length() != 0) {
 
-          Task task = new Task(desc.getText().toString(), rate.getText().toString(), Float.parseFloat(total.getText().toString()));
+          Task task = new Task(desc.getText().toString(), rate.getText().toString(),
+              Float.parseFloat(
+                  total.getText().toString()));
           task.save();
 
           Intent intent = new Intent(getActivity(), DetailAnctivity.class);
@@ -56,4 +62,11 @@ public class CreateTaskFragment extends Fragment {
     return inflate;
   }
 
+  @Override
+  public void onResume() {
+    super.onResume();
+    desc.getText().clear();
+    total.getText().clear();
+    rate.getText().clear();
+  }
 }

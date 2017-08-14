@@ -103,7 +103,6 @@ public class MoneyBoxView extends View {
     super.onDraw(canvas);
     animateDrawCircle();
     canvas.drawColor(backgroundColor);
-    //  drawTopText(canvas);
     drawMiddleText(canvas);
     drawDescentText(canvas);
     drawFirstCircle(canvas);
