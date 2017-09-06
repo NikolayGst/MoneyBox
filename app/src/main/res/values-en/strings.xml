@@ -1,0 +1,15 @@
+<resources>
+  <string name="app_name">MoneyBox</string>
+  <string name="text.desc">Describe your desire</string>
+  <string name="text.total">How much should you save?</string>
+  <string name="text.rate">Enter currency</string>
+  <string name="text.btn.create">Create</string>
+  <string name="text.empty">No desire yet…</string>
+  <string name="text.card.desc">Description:</string>
+  <string name="text.card.total">Invested / Total:</string>
+  <string name="text.enter.sum">Enter amount</string>
+  <string name="text.btn.add">Add</string>
+  <string name="text.btn.del">Pull off</string>
+  <string name="text.menu.create">Create a wish</string>
+  <string name="text.menu.list">A wish list</string>
+</resources>

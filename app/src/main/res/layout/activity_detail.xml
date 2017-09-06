@@ -17,7 +17,7 @@
     android:padding="16dp"
     android:gravity="center"
     android:fontFamily="sans-serif"
-    android:text="На покупку SAMSUNG GALAXY S7"
+    android:text=""
     android:textColor="@color/white"
     android:textSize="20sp" />
 

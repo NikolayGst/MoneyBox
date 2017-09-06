@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import com.github.nitrico.lastadapter.Holder;
 import com.github.nitrico.lastadapter.ItemType;
@@ -35,6 +38,8 @@ public class ListTasksFragment extends Fragment {
   private TextView empty;
   private List<Task> tasks;
   private LastAdapter lastAdapter;
+
+  private AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1f);
 
   public ListTasksFragment() {
     // Required empty public constructor
@@ -76,13 +81,20 @@ public class ListTasksFragment extends Fragment {
             @Override
             public void onCreate(final Holder<ItemLayoutBinding> holder) {
               super.onCreate(holder);
+              AnimationSet set = new AnimationSet(false);
+              TranslateAnimation translate = new TranslateAnimation(0, 0, -20, 0);
+              translate.setDuration(300);
+              AlphaAnimation alpha = new AlphaAnimation(0, 1f);
+              alpha.setDuration(300);
+              set.addAnimation(alpha);
+              set.addAnimation(translate);
            /*   TranslateAnimation animation = new TranslateAnimation(-100, 0, 0, 0);
               animation.setDuration(1000);
               View
               root.setAnimation(animation);
               animation.start();*/
               View root = holder.getBinding().getRoot();
-
+              root.startAnimation(set);
               root.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -129,6 +141,8 @@ public class ListTasksFragment extends Fragment {
     } else {
       recyclerTask.setVisibility(View.INVISIBLE);
       empty.setVisibility(View.VISIBLE);
+      alphaAnimation.setDuration(1500);
+      empty.startAnimation(alphaAnimation);
       return false;
     }
   }

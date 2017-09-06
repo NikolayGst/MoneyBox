@@ -15,7 +15,7 @@
     android:id="@+id/empty"
 
     android:layout_width="match_parent"
-    android:text="Пока нет желаний..."
+    android:text="@string/text.empty"
     android:textColor="@color/white"
     android:textSize="28sp"
     android:gravity="center"

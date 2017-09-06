@@ -1,3 +1,15 @@
 <resources>
   <string name="app_name">Копилочка</string>
+  <string name="text.desc">Опишите ваше желание</string>
+  <string name="text.total">Сколько нужно накопить?</string>
+  <string name="text.rate">Введите валюту</string>
+  <string name="text.btn.create">Создать</string>
+  <string name="text.empty">Пока нет желаний...</string>
+  <string name="text.card.desc">Описание:</string>
+  <string name="text.card.total">Вложено / Всего:</string>
+  <string name="text.enter.sum">Введите сумму</string>
+  <string name="text.btn.add">Добавить</string>
+  <string name="text.btn.del">снять</string>
+  <string name="text.menu.create">Создать желание</string>
+  <string name="text.menu.list">Список желаний</string>
 </resources>

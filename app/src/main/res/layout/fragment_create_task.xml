@@ -7,12 +7,17 @@
   tools:context="niko.ru.kopilka.activity.fragment.CreateTaskFragment">
 
   <android.support.v7.widget.CardView
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="4dp"
     app:cardElevation="8dp"
-    android:layout_margin="8dp">
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
+    >
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -23,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="32dp"
-        android:hint="Опишите ваше желание"
+        android:hint="@string/text.desc"
         android:inputType="text"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -33,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="32dp"
-        android:hint="Сколько нужно накопить?"
+        android:hint="@string/text.total"
         android:inputType="numberDecimal"
         android:maxLength="8"
         android:textColor="@color/black"
@@ -44,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="32dp"
-        android:hint="Введите валюту"
+        android:hint="@string/text.rate"
         android:inputType="text"
         android:maxLength="3"
         android:textColor="@color/black"
@@ -56,7 +61,7 @@
         android:layout_height="60dp"
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
-        android:text="Создать"
+        android:text="@string/text.btn.create"
         android:textColor="@color/white"
         android:textSize="20sp" />
     </LinearLayout>

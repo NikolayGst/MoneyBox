@@ -12,7 +12,7 @@
     android:layout_marginRight="64dp"
     android:fontFamily="sans-serif-light"
     android:gravity="center"
-    android:text="Введите сумму"
+    android:text="@string/text.enter.sum"
     android:textColor="@android:color/black"
     android:textSize="22sp" />
 
@@ -38,7 +38,7 @@
       android:layout_marginLeft="16dp"
       android:layout_marginRight="4dp"
       android:background="@color/green"
-      android:text="Добавить"
+      android:text="@string/text.btn.add"
       android:textColor="@color/white" />
     <Button
       android:id="@+id/delete"
@@ -51,7 +51,7 @@
       android:layout_marginRight="16dp"
       android:layout_margin="16dp"
       android:background="@color/red"
-      android:text="снять"
+      android:text="@string/text.btn.del"
       android:textColor="@color/white" />
   </LinearLayout>
 

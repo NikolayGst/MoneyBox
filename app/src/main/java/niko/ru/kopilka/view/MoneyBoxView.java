@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
+import android.graphics.Paint.Cap;
 import android.graphics.Paint.Style;
 import android.graphics.Typeface;
 import android.support.annotation.Nullable;
@@ -30,6 +31,7 @@ public class MoneyBoxView extends View {
   private int width;
   private int backgroundColor;
   private int padding = 50;
+  private float speed = 1.2f;
   private float startAngle = 0;
   private float endAngle = 0;
   private long id;
@@ -91,9 +93,13 @@ public class MoneyBoxView extends View {
   }
 
   private void animateDrawCircle() {
-    pos = ((included * 100 / total) / 100) * 360;
-    if (endAngle <= pos) {
-      endAngle++;
+    if (included == 0) {
+      pos = 0;
+    } else {
+      pos = ((included * 100 / total) / 100) * 360;
+    }
+    if (endAngle < pos) {
+      endAngle += speed;
       postInvalidate();
     }
   }
@@ -119,7 +125,7 @@ public class MoneyBoxView extends View {
   private void drawDescentText(Canvas canvas) {
     textPaint.setTextSize(TypedValue
         .applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics()));
-    canvas.drawText((int)(included * 100 / total) + "%", width / 2,
+    canvas.drawText((int) (included * 100 / total) + "%", width / 2,
         height / 2 + height / 5, textPaint);
   }
 
@@ -127,6 +133,7 @@ public class MoneyBoxView extends View {
   private void drawSecondCircle(Canvas canvas) {
     figurePaint.setColor(ContextCompat.getColor(getContext(), R.color.red));
     figurePaint.setStrokeWidth(20);
+    figurePaint.setStrokeCap(Cap.ROUND);
     canvas
         .drawArc(cx - radius + 15, cy - radius + 15, cx + radius - 15, cy + radius - 15,
             startAngle + 90,
