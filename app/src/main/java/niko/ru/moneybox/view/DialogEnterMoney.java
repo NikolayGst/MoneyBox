@@ -1,4 +1,4 @@
-package niko.ru.monexbox.view;
+package niko.ru.moneybox.view;
 
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffColorFilter;
@@ -12,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import niko.ru.monexbox.R;
+import niko.ru.moneybox.R;
 
 public class DialogEnterMoney extends DialogFragment {
 

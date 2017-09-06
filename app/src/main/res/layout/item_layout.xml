@@ -4,7 +4,7 @@
   <data>
     <variable
       name="task"
-      type="niko.ru.monexbox.model.Task" />
+      type="niko.ru.moneybox.model.Task" />
   </data>
 
 

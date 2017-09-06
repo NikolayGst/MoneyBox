@@ -1,4 +1,4 @@
-package niko.ru.monexbox.model;
+package niko.ru.moneybox.model;
 
 import com.orm.SugarRecord;
 

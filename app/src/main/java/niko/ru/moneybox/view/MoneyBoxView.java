@@ -1,4 +1,4 @@
-package niko.ru.monexbox.view;
+package niko.ru.moneybox.view;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -19,9 +19,9 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import niko.ru.monexbox.model.Task;
-import niko.ru.monexbox.view.DialogEnterMoney.OnEnterMoneyListener;
-import niko.ru.monexbox.R;
+import niko.ru.moneybox.model.Task;
+import niko.ru.moneybox.view.DialogEnterMoney.OnEnterMoneyListener;
+import niko.ru.moneybox.R;
 
 public class MoneyBoxView extends View {
 

@@ -1,4 +1,4 @@
-package niko.ru.monexbox.activity.fragment;
+package niko.ru.moneybox.activity.fragment;
 
 
 import android.content.DialogInterface;
@@ -24,11 +24,11 @@ import com.github.nitrico.lastadapter.Holder;
 import com.github.nitrico.lastadapter.ItemType;
 import com.github.nitrico.lastadapter.LastAdapter;
 import java.util.List;
-import niko.ru.monexbox.BR;
-import niko.ru.monexbox.R;
-import niko.ru.monexbox.activity.DetailAnctivity;
-import niko.ru.monexbox.databinding.ItemLayoutBinding;
-import niko.ru.monexbox.model.Task;
+import niko.ru.moneybox.BR;
+import niko.ru.moneybox.R;
+import niko.ru.moneybox.activity.DetailAnctivity;
+import niko.ru.moneybox.databinding.ItemLayoutBinding;
+import niko.ru.moneybox.model.Task;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  package="niko.ru.monexbox">
-
-
+  package="niko.ru.moneybox">
 
   <application
     android:name="com.orm.SugarApp"
@@ -17,16 +15,16 @@
     <meta-data android:name="DATABASE" android:value="task.db" />
     <meta-data android:name="VERSION" android:value="1" />
     <meta-data android:name="QUERY_LOG" android:value="true" />
-    <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="niko.ru.kopilka.model" />
+    <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="niko.ru.moneybox.model" />
 
     <activity
-      android:name="niko.ru.monexbox.activity.DetailAnctivity"
+      android:name="niko.ru.moneybox.activity.DetailAnctivity"
       android:screenOrientation="portrait">
 
     </activity>
     <activity
       android:screenOrientation="portrait"
-      android:name="niko.ru.monexbox.activity.MainActivity">
+      android:name="niko.ru.moneybox.activity.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

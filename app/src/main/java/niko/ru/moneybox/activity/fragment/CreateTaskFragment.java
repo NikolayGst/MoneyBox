@@ -1,4 +1,4 @@
-package niko.ru.monexbox.activity.fragment;
+package niko.ru.moneybox.activity.fragment;
 
 
 import android.content.Intent;
@@ -16,9 +16,9 @@ import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
-import niko.ru.monexbox.R;
-import niko.ru.monexbox.activity.DetailAnctivity;
-import niko.ru.monexbox.model.Task;
+import niko.ru.moneybox.R;
+import niko.ru.moneybox.activity.DetailAnctivity;
+import niko.ru.moneybox.model.Task;
 
 /**
  * A simple {@link Fragment} subclass.

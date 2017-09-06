@@ -1,4 +1,4 @@
-package niko.ru.monexbox.activity;
+package niko.ru.moneybox.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.TextView;
-import niko.ru.monexbox.R;
-import niko.ru.monexbox.model.Task;
-import niko.ru.monexbox.view.MoneyBoxView;
+import niko.ru.moneybox.R;
+import niko.ru.moneybox.model.Task;
+import niko.ru.moneybox.view.MoneyBoxView;
 
 public class DetailAnctivity extends AppCompatActivity {
 
