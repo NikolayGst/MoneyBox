@@ -1,10 +1,12 @@
-package niko.ru.kopilka.activity.fragment;
+package niko.ru.monexbox.activity.fragment;
 
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,11 +24,11 @@ import com.github.nitrico.lastadapter.Holder;
 import com.github.nitrico.lastadapter.ItemType;
 import com.github.nitrico.lastadapter.LastAdapter;
 import java.util.List;
-import niko.ru.kopilka.BR;
-import niko.ru.kopilka.R;
-import niko.ru.kopilka.activity.DetailAnctivity;
-import niko.ru.kopilka.databinding.ItemLayoutBinding;
-import niko.ru.kopilka.model.Task;
+import niko.ru.monexbox.BR;
+import niko.ru.monexbox.R;
+import niko.ru.monexbox.activity.DetailAnctivity;
+import niko.ru.monexbox.databinding.ItemLayoutBinding;
+import niko.ru.monexbox.model.Task;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -81,6 +83,7 @@ public class ListTasksFragment extends Fragment {
             @Override
             public void onCreate(final Holder<ItemLayoutBinding> holder) {
               super.onCreate(holder);
+
               AnimationSet set = new AnimationSet(false);
               TranslateAnimation translate = new TranslateAnimation(0, 0, -20, 0);
               translate.setDuration(300);
@@ -88,11 +91,7 @@ public class ListTasksFragment extends Fragment {
               alpha.setDuration(300);
               set.addAnimation(alpha);
               set.addAnimation(translate);
-           /*   TranslateAnimation animation = new TranslateAnimation(-100, 0, 0, 0);
-              animation.setDuration(1000);
-              View
-              root.setAnimation(animation);
-              animation.start();*/
+
               View root = holder.getBinding().getRoot();
               root.startAnimation(set);
               root.setOnClickListener(new OnClickListener() {
@@ -127,6 +126,10 @@ public class ListTasksFragment extends Fragment {
                   return true;
                 }
               });
+
+              holder.getBinding().progressBar.getProgressDrawable().mutate()
+                  .setColorFilter(ContextCompat.getColor(getContext(), R.color.red),
+                      Mode.SRC_IN);
             }
           })
           .into(recyclerTask);

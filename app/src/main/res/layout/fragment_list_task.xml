@@ -3,7 +3,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@color/colorPrimaryDark"
-  tools:context="niko.ru.kopilka.activity.fragment.ListTasksFragment">
+  tools:context="niko.ru.monexbox.activity.fragment.ListTasksFragment">
 
   <!-- TODO: Update blank fragment layout -->
   <android.support.v7.widget.RecyclerView

@@ -1,4 +1,4 @@
-package niko.ru.kopilka.activity.fragment;
+package niko.ru.monexbox.activity.fragment;
 
 
 import android.content.Intent;
@@ -13,14 +13,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import android.view.animation.AnimationSet;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.Interpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
-import niko.ru.kopilka.R;
-import niko.ru.kopilka.activity.DetailAnctivity;
-import niko.ru.kopilka.model.Task;
+import niko.ru.monexbox.R;
+import niko.ru.monexbox.activity.DetailAnctivity;
+import niko.ru.monexbox.model.Task;
 
 /**
  * A simple {@link Fragment} subclass.

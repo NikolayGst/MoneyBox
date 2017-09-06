@@ -1,4 +1,4 @@
-package niko.ru.kopilka.activity;
+package niko.ru.monexbox.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,10 +6,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
-import niko.ru.kopilka.R;
-import niko.ru.kopilka.activity.fragment.CreateTaskFragment;
-import niko.ru.kopilka.activity.fragment.ListTasksFragment;
+import niko.ru.monexbox.R;
+import niko.ru.monexbox.activity.fragment.CreateTaskFragment;
+import niko.ru.monexbox.activity.fragment.ListTasksFragment;
 
 public class MainActivity extends AppCompatActivity {
 

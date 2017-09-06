@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  package="niko.ru.kopilka">
+  package="niko.ru.monexbox">
 
 
 
@@ -20,13 +20,13 @@
     <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="niko.ru.kopilka.model" />
 
     <activity
-      android:name=".activity.DetailAnctivity"
+      android:name="niko.ru.monexbox.activity.DetailAnctivity"
       android:screenOrientation="portrait">
 
     </activity>
     <activity
       android:screenOrientation="portrait"
-      android:name=".activity.MainActivity">
+      android:name="niko.ru.monexbox.activity.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

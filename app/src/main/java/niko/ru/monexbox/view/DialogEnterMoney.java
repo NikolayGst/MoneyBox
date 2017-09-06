@@ -1,6 +1,5 @@
-package niko.ru.kopilka.view;
+package niko.ru.monexbox.view;
 
-import android.content.SharedPreferences;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import niko.ru.kopilka.R;
+import niko.ru.monexbox.R;
 
 public class DialogEnterMoney extends DialogFragment {
 

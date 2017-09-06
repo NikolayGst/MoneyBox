@@ -6,7 +6,7 @@
   android:layout_height="match_parent"
   android:background="@color/colorPrimary"
   android:orientation="vertical"
-  tools:context="niko.ru.kopilka.activity.DetailAnctivity">
+  tools:context="niko.ru.monexbox.activity.DetailAnctivity">
 
   <TextView
     android:id="@+id/desc"
@@ -21,7 +21,7 @@
     android:textColor="@color/white"
     android:textSize="20sp" />
 
-  <niko.ru.kopilka.view.MoneyBoxView
+  <niko.ru.monexbox.view.MoneyBoxView
     android:id="@+id/moneyBox"
     android:visibility="invisible"
     android:layout_width="match_parent"
