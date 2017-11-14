@@ -45,6 +45,8 @@ public class MoneyBoxView extends View {
   private FragmentManager fragmentManager;
   private float pos;
   private SharedPreferences sharedPreferences;
+  private int progress;
+  private DialogEnterMoney enterMoney;
 
 
   public void setFragmentManager(FragmentManager fragmentManager) {
@@ -81,7 +83,7 @@ public class MoneyBoxView extends View {
         height = getHeight();
       }
     });
-
+    initDialog();
   }
 
   public void set(long id, String rate, float included, float total) {
@@ -102,6 +104,7 @@ public class MoneyBoxView extends View {
       endAngle += speed;
       postInvalidate();
     }
+    this.progress = (int) (included * 100 / total);
   }
 
   @Override
@@ -125,13 +128,15 @@ public class MoneyBoxView extends View {
   private void drawDescentText(Canvas canvas) {
     textPaint.setTextSize(TypedValue
         .applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics()));
-    canvas.drawText((int) (included * 100 / total) + "%", width / 2,
+    canvas.drawText(progress + "%", width / 2,
         height / 2 + height / 5, textPaint);
   }
 
   @SuppressLint("NewApi")
   private void drawSecondCircle(Canvas canvas) {
-    figurePaint.setColor(ContextCompat.getColor(getContext(), R.color.red));
+    figurePaint.setColor(progress >= 100 ? ContextCompat
+        .getColor(getContext(), R.color.green_completed)
+        : ContextCompat.getColor(getContext(), R.color.red));
     figurePaint.setStrokeWidth(20);
     figurePaint.setStrokeCap(Cap.ROUND);
     canvas
@@ -151,9 +156,8 @@ public class MoneyBoxView extends View {
     canvas.drawCircle(cx, cy, radius, figurePaint);
   }
 
-  private void openDialog() {
-    DialogEnterMoney enterMoney = new DialogEnterMoney();
-    enterMoney.show(fragmentManager, "dialog");
+  private void initDialog() {
+    enterMoney = new DialogEnterMoney();
     enterMoney.setOnEnterMoneyListener(new OnEnterMoneyListener() {
       @Override
       public void onEnterMoney(float money) {
@@ -180,8 +184,8 @@ public class MoneyBoxView extends View {
     switch (event.getAction()) {
       case MotionEvent.ACTION_DOWN:
         int dst = (int) Math.sqrt(Math.pow((cx - x), 2) + Math.pow((cy - y), 2));
-        if (dst < radius) {
-          openDialog();
+        if (dst < radius && progress < 100) {
+          enterMoney.show(fragmentManager, "dialog");
         }
         break;
     }

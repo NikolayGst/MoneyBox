@@ -12,4 +12,15 @@
   <string name="text.btn.del">Pull off</string>
   <string name="text.menu.create">Create a wish</string>
   <string name="text.menu.list">A wish list</string>
+  <string name="select_rate">Select currency</string>
+  <string name="select">Select</string>
+  <string name="cancel">Cancel</string>
+
+  <string-array name="rates">
+    <item>uah</item>
+    <item>$</item>
+    <item>eur</item>
+    <item>rub</item>
+  </string-array>
 </resources>
+

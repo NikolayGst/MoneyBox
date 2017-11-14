@@ -97,8 +97,7 @@ public class ListTasksFragment extends Fragment {
               root.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                  Task task = holder.getBinding().getTask();
-                  startDetailActivity(task);
+                  startDetailActivity(holder.getBinding().getTask());
                 }
               });
 
@@ -127,8 +126,14 @@ public class ListTasksFragment extends Fragment {
                 }
               });
 
+              int progress = holder.getBinding().getTask().getProgress();
+
+              holder.getBinding().imageCompleted
+                  .setVisibility(progress >= 100 ? View.VISIBLE : View.INVISIBLE);
+
               holder.getBinding().progressBar.getProgressDrawable().mutate()
-                  .setColorFilter(ContextCompat.getColor(getContext(), R.color.red),
+                  .setColorFilter(ContextCompat.getColor(getContext(),
+                      progress >= 100 ? R.color.green_completed : R.color.red),
                       Mode.SRC_IN);
             }
           })
