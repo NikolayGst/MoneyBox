@@ -1,8 +1,8 @@
 <resources>
-  <string name="app_name">Копилочка</string>
+  <string name="app_name">MoneyBox</string>
   <string name="text.desc">Опишите ваше желание</string>
   <string name="text.total">Сколько нужно накопить?</string>
-  <string name="text.rate">Введите валюту</string>
+  <string name="text.rate">Выберете валюту</string>
   <string name="text.btn.create">Создать</string>
   <string name="text.empty">Пока нет желаний...</string>
   <string name="text.card.desc">Описание:</string>
@@ -12,4 +12,14 @@
   <string name="text.btn.del">снять</string>
   <string name="text.menu.create">Создать желание</string>
   <string name="text.menu.list">Список желаний</string>
+  <string name="select_rate">Выбор валюты</string>
+  <string name="select">Выбрать</string>
+  <string name="cancel">Отмена</string>
+
+  <string-array name="rates">
+    <item>грн</item>
+    <item>$</item>
+    <item>евро</item>
+    <item>руб</item>
+  </string-array>
 </resources>

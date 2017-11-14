@@ -51,7 +51,9 @@
         android:padding="32dp"
         android:hint="@string/text.rate"
         android:inputType="text"
-        android:maxLength="3"
+        android:maxLength="4"
+        android:clickable="false"
+        android:focusable="false"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
