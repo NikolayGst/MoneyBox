@@ -17,7 +17,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import niko.ru.moneybox.R;
-import niko.ru.moneybox.activity.DetailAnctivity;
+import niko.ru.moneybox.activity.DetailActivity;
 import niko.ru.moneybox.model.Task;
 
 /**
@@ -71,7 +71,7 @@ public class CreateTaskFragment extends Fragment {
                   total.getText().toString()));
           task.save();
 
-          Intent intent = new Intent(getActivity(), DetailAnctivity.class);
+          Intent intent = new Intent(getActivity(), DetailActivity.class);
           intent.putExtra("id", task.getId());/*
           intent.putExtra("desc", desc.getText().toString());
           intent.putExtra("rate", rate.getText().toString());

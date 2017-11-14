@@ -6,7 +6,7 @@
   android:layout_height="match_parent"
   android:background="@color/colorPrimary"
   android:orientation="vertical"
-  tools:context="niko.ru.moneybox.activity.DetailAnctivity">
+  tools:context="niko.ru.moneybox.activity.DetailActivity">
 
   <TextView
     android:id="@+id/desc"

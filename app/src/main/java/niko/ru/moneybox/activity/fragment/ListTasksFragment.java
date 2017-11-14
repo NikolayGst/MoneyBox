@@ -26,7 +26,7 @@ import com.github.nitrico.lastadapter.LastAdapter;
 import java.util.List;
 import niko.ru.moneybox.BR;
 import niko.ru.moneybox.R;
-import niko.ru.moneybox.activity.DetailAnctivity;
+import niko.ru.moneybox.activity.DetailActivity;
 import niko.ru.moneybox.databinding.ItemLayoutBinding;
 import niko.ru.moneybox.model.Task;
 
@@ -151,7 +151,7 @@ public class ListTasksFragment extends Fragment {
   }
 
   private void startDetailActivity(Task task) {
-    Intent intent = new Intent(getActivity(), DetailAnctivity.class);
+    Intent intent = new Intent(getActivity(), DetailActivity.class);
     intent.putExtra("id", task.getId());
     startActivity(intent);
   }

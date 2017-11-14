@@ -11,7 +11,7 @@ import niko.ru.moneybox.R;
 import niko.ru.moneybox.model.Task;
 import niko.ru.moneybox.view.MoneyBoxView;
 
-public class DetailAnctivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity {
 
   private TextView desc;
   private MoneyBoxView moneyBox;

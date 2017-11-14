@@ -18,7 +18,7 @@
     <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="niko.ru.moneybox.model" />
 
     <activity
-      android:name="niko.ru.moneybox.activity.DetailAnctivity"
+      android:name="niko.ru.moneybox.activity.DetailActivity"
       android:screenOrientation="portrait">
 
     </activity>

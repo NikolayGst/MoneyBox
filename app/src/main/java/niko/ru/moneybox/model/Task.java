@@ -3,7 +3,7 @@ package niko.ru.moneybox.model;
 import com.orm.SugarRecord;
 
 
-public class Task extends SugarRecord<Task> {
+public class Task extends SugarRecord {
 
   public Task() {
   }
