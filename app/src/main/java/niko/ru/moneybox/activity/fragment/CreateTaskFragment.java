@@ -82,20 +82,18 @@ public class CreateTaskFragment extends Fragment {
         if (desc.getText().toString().length() != 0 && total.getText().toString().length() != 0
             && rate.getText().toString().length() != 0) {
 
-          Task task = new Task(desc.getText().toString(), rate.getText().toString(),
-              Float.parseFloat(
-                  total.getText().toString()));
+          Task task = new Task(desc.getText().toString(),
+              rate.getText().toString(),
+              Float.parseFloat(total.getText().toString()));
           task.save();
 
           Intent intent = new Intent(getActivity(), DetailActivity.class);
-          intent.putExtra("id", task.getId());/*
-          intent.putExtra("desc", desc.getText().toString());
-          intent.putExtra("rate", rate.getText().toString());
-          intent.putExtra("total", Float.parseFloat(total.getText().toString()));*/
+          intent.putExtra("id", task.getId());
           startActivity(intent);
         }
       }
     });
+
     return inflate;
   }
 

@@ -68,16 +68,6 @@ public class ListTasksFragment extends Fragment {
     tasks = Task.listAll(Task.class);
 
     if (checkEmptyList()) {
-      /*SlideInLeftAnimator slideInLeftAnimator = new SlideInLeftAnimator();
-      slideInLeftAnimator.setChangeDuration(1500);
-      slideInLeftAnimator.setMoveDuration(1500);
-      recyclerTask.setItemAnimator(slideInLeftAnimator);
-*/
-      /*   TranslateAnimation animation = new TranslateAnimation(-100, 0, 0, 0);
-         animation.setDuration(1000);
-         View
-         root.setAnimation(animation);
-         animation.start();*/
       lastAdapter = new LastAdapter(tasks, BR.task)
           .map(Task.class, new ItemType<ItemLayoutBinding>(R.layout.item_layout) {
             @Override

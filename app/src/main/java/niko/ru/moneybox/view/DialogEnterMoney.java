@@ -1,5 +1,6 @@
 package niko.ru.moneybox.view;
 
+
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
@@ -45,8 +46,7 @@ public class DialogEnterMoney extends DialogFragment {
     save.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (Float.parseFloat(edit.getText().toString()) != 0
-            && edit.getText().toString().length() != 0) {
+        if (Float.parseFloat(edit.getText().toString()) != 0 && edit.getText().length() != 0) {
           onEnterMoneyListener.onEnterMoney(Float.parseFloat(edit.getText().toString()));
           dismiss();
         }
