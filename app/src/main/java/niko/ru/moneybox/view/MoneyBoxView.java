@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Cap;
 import android.graphics.Paint.Style;
+import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
@@ -41,6 +42,7 @@ public class MoneyBoxView extends View {
   private int radius;
   private int cx;
   private int cy;
+  private RectF secondCircleRect;
 
   private FragmentManager fragmentManager;
   private float pos;
@@ -69,6 +71,7 @@ public class MoneyBoxView extends View {
     //included = getIncludedValue();
     backgroundColor = ContextCompat.getColor(getContext(), R.color.colorPrimary);
     textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    secondCircleRect = new RectF();
     figurePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     figurePaint.setStyle(Style.STROKE);
     textPaint.setStyle(Style.FILL);
@@ -132,17 +135,16 @@ public class MoneyBoxView extends View {
         height / 2 + height / 5, textPaint);
   }
 
-  @SuppressLint("NewApi")
   private void drawSecondCircle(Canvas canvas) {
     figurePaint.setColor(progress >= 100 ? ContextCompat
         .getColor(getContext(), R.color.green_completed)
         : ContextCompat.getColor(getContext(), R.color.red));
     figurePaint.setStrokeWidth(20);
     figurePaint.setStrokeCap(Cap.ROUND);
-    canvas
-        .drawArc(cx - radius + 15, cy - radius + 15, cx + radius - 15, cy + radius - 15,
-            startAngle + 90,
-            endAngle, false, figurePaint);
+
+    secondCircleRect.set(cx - radius + 15, cy - radius + 15, cx + radius - 15, cy + radius - 15);
+
+    canvas.drawArc( secondCircleRect, startAngle + 90, endAngle, false, figurePaint);
     // canvas.drawArc(padding + 14, height / 2 - height / 4 - 4, width - padding - 14, height / 2 + height / 4 + 4, startAngle, endAngle, false, figurePaint);
     //canvas.drawArc(width /6 - padding, height / 2 - height / 4 - padding, width - padding, height / 2 + height / 4 , startAngle, endAngle, false, figurePaint);
   }

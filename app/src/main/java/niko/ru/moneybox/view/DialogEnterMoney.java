@@ -46,7 +46,7 @@ public class DialogEnterMoney extends DialogFragment {
     save.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (Float.parseFloat(edit.getText().toString()) != 0 && edit.getText().length() != 0) {
+        if (edit.getText().length() != 0 && Float.parseFloat(edit.getText().toString()) != 0) {
           onEnterMoneyListener.onEnterMoney(Float.parseFloat(edit.getText().toString()));
           dismiss();
         }
@@ -55,9 +55,7 @@ public class DialogEnterMoney extends DialogFragment {
     delete.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (Float.parseFloat(edit.getText().toString()) != 0
-            && edit.getText().toString().length() != 0) {
-
+        if (edit.getText().length() != 0 && Float.parseFloat(edit.getText().toString()) != 0) {
           onEnterMoneyListener.onWithDrawMoney(Float.parseFloat(edit.getText().toString()));
           dismiss();
         }
